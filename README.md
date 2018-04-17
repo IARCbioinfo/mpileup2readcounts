@@ -13,7 +13,7 @@ g++ -std=c++11 -O3 mpileup2readcounts.cc -o mpileup2readcounts
 ## Usage
 
 ```
-samtools mpileup -f ref.fa -l regions.bed BAM/*.bam | sed 's/		/	* 	*/g' | ./mpileup2readcounts 0 -5 false 3
+samtools mpileup -f ref.fa -l regions.bed BAM/*.bam | sed 's/		/	* 	*/g' | ./mpileup2readcounts 0 -5 false 3 0
 ```
 Samtools arguments :
 - FASTA file
@@ -25,6 +25,7 @@ Four options for mpileup2readcounts :
 - BQcut : base quality score cutoff for each mapped/unmapped base, only those larger than cutoff will be output in the result, to use no filter set BQcut to -5
 - true to ignore indels
 - min_ao : minimum number of non-ref reads in at least one sample to consider a site
+- min_af : minimum allelic fraction in at least one sample to consider a site
 
 ## Example output
 
